@@ -983,27 +983,24 @@
     margin-bottom: 10px;
   }
   .ss-upsell__row {
-    display: flex;
-    gap: 10px;
-    overflow-x: auto;
-    padding-bottom: 4px;
-    scrollbar-width: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    gap: 8px;
     width: 100%;
     min-width: 0;
     max-width: 100%;
     box-sizing: border-box;
   }
-  .ss-upsell__row::-webkit-scrollbar { display: none; }
   .ss-pill {
-    flex: 0 0 auto;
     display: flex;
     align-items: center;
     gap: 10px;
+    min-width: 0;
     text-decoration: none;
     background: rgba(255, 255, 255, 0.85);
     border: 1.5px solid rgba(150, 47, 128, 0.18);
     border-radius: 999px;
-    padding: 7px 16px 7px 7px;
+    padding: 7px 14px 7px 7px;
     transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
   }
   .ss-pill:hover {
@@ -1018,10 +1015,10 @@
     background: #fff;
     flex: none;
   }
-  .ss-pill__info { display: flex; flex-direction: column; gap: 2px; }
+  .ss-pill__info { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
   .ss-pill__name {
     font-size: 13px; font-weight: 700; color: var(--happie-black, #222);
-    white-space: nowrap;
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
   }
   .ss-pill__prices { display: flex; align-items: center; gap: 7px; }
   .ss-pill__was { font-size: 12px; color: #9a9a9a; text-decoration: line-through; }

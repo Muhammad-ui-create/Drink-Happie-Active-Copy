@@ -28,10 +28,21 @@
   .collection-hero__content {
     position: relative;
     z-index: 10;
+    width: 100%;
     max-width: 1400px;
+    min-width: 0; /* flex item must be allowed to shrink below its filter-pill content, else it overflows the viewport on mobile */
     margin: 0 auto;
     padding: 60px 20px 40px;
+    box-sizing: border-box;
     text-align: center;
+  }
+  /* keep the filter-pill row within the viewport so it wraps instead of widening the page */
+  .collection-filters,
+  .collection-filters__bar,
+  .collection-filters__scroll-container {
+    max-width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
   }
   
   /* Ensure section wrapper doesn't clip */
