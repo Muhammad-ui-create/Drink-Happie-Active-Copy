@@ -32,11 +32,30 @@
 
   /* SECTION CONTAINER */
   .happie-pdp-section {
-    background: #ffffff;
+    position: relative;
+    background:
+      radial-gradient(120% 120% at 12% 18%, rgba(80, 178, 189, 0.30) 0%, rgba(80, 178, 189, 0) 42%),
+      radial-gradient(120% 120% at 88% 12%, rgba(255, 159, 49, 0.28) 0%, rgba(255, 159, 49, 0) 44%),
+      radial-gradient(130% 130% at 82% 88%, rgba(150, 47, 128, 0.24) 0%, rgba(150, 47, 128, 0) 48%),
+      radial-gradient(120% 120% at 16% 92%, rgba(247, 205, 70, 0.26) 0%, rgba(247, 205, 70, 0) 46%),
+      #ffffff;
+    background-size: 200% 200%, 200% 200%, 200% 200%, 200% 200%, auto;
+    animation: happie-pdp-mesh 22s ease-in-out infinite;
     max-width: 1440px;
     margin: 0 auto;
-    padding: 12px 40px 60px;
+    padding: 32px 40px 60px;
+    border-radius: 28px;
     font-family: 'Poppins', sans-serif;
+  }
+
+  @keyframes happie-pdp-mesh {
+    0%   { background-position: 0% 0%, 100% 0%, 100% 100%, 0% 100%, 0 0; }
+    50%  { background-position: 30% 20%, 70% 15%, 75% 80%, 20% 85%, 0 0; }
+    100% { background-position: 0% 0%, 100% 0%, 100% 100%, 0% 100%, 0 0; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .happie-pdp-section { animation: none; }
   }
 
   /* BREADCRUMBS */
