@@ -127,6 +127,8 @@
     gap: 40px;
     position: relative;
   }
+  /* grid tracks must be allowed to shrink below intrinsic child content */
+  .happie-pdp-grid > * { min-width: 0; }
 
   /* LEFT SIDE: PRODUCT IMAGES */
   .product-images-container {
@@ -330,6 +332,7 @@
     -webkit-backdrop-filter: blur(16px) saturate(1.15);
     width: 100%;
     max-width: 626px;
+    min-width: 0; /* allow the grid/flex track to shrink below intrinsic content (e.g. the upsell pill row) */
     border-radius: 24px;
     border: 1px solid rgba(255, 255, 255, 0.75);
     box-shadow: 0 24px 60px rgba(150, 47, 128, 0.12), 0 8px 24px rgba(80, 178, 189, 0.10);
@@ -970,7 +973,7 @@
   }
 
   /* SUBSCRIBE & SAVE UPSELL PILLS (variety pack) */
-  .ss-upsell { margin: 4px 0 22px; }
+  .ss-upsell { margin: 4px 0 22px; min-width: 0; max-width: 100%; }
   .ss-upsell__head {
     font-size: 13px;
     font-weight: 800;
@@ -985,6 +988,10 @@
     overflow-x: auto;
     padding-bottom: 4px;
     scrollbar-width: none;
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    box-sizing: border-box;
   }
   .ss-upsell__row::-webkit-scrollbar { display: none; }
   .ss-pill {
