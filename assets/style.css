@@ -36,7 +36,7 @@
 .header-info-slider { background: rgb(74 139 118 / 30%); padding: 10px; }
 .header-info-slider .info.slick-slide { text-align: center; }
 .header-info-slider .info.slick-slide p { font-size: 18px; font-weight: 600; }
-.happie-product-section .flavor-option {background-color: #e1be97; }
+.happie-product-section .flavor-option {background-color: #ffffff; }
 .happie-product-section { background: #ffffff; padding: 100px 0 150px; }
 .happie-product-section .cstm-container { max-width: 1300px; margin: 0 auto; padding: 0 15px; position: relative; z-index: 22; background-color: transparent; }
 .happie-product-section .main-product-image { max-width: 100%; }
@@ -56,7 +56,7 @@
 .happie-product-section .accordion-tabs { margin-bottom: 20px; }
 .shipping-info { margin-bottom: 25px; }
 .coa-button { margin-bottom: 0 !important; }
-.happie-product-section .thumbnail-item { background-color: #e1be97; }
+.happie-product-section .thumbnail-item { background-color: #ffffff; }
 
 .price-outer-wrapp { display: flex; align-items: center; gap: 10px; }
 .price-outer-wrapp .product-price { margin-bottom: 0; margin-right: 0 !important; }
