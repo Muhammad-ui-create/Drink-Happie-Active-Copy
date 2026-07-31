@@ -30,14 +30,18 @@
   /* FONT IMPORTS */
   @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
 
-  /* SECTION CONTAINER */
+  /* SECTION CONTAINER — flavor-themed mesh gradient (colors set per product via --m1..--m4) */
   .happie-pdp-section {
     position: relative;
+    --m1: rgba(80, 178, 189, 0.45);
+    --m2: rgba(255, 159, 49, 0.45);
+    --m3: rgba(150, 47, 128, 0.42);
+    --m4: rgba(247, 205, 70, 0.44);
     background:
-      radial-gradient(120% 120% at 12% 18%, rgba(80, 178, 189, 0.30) 0%, rgba(80, 178, 189, 0) 42%),
-      radial-gradient(120% 120% at 88% 12%, rgba(255, 159, 49, 0.28) 0%, rgba(255, 159, 49, 0) 44%),
-      radial-gradient(130% 130% at 82% 88%, rgba(150, 47, 128, 0.24) 0%, rgba(150, 47, 128, 0) 48%),
-      radial-gradient(120% 120% at 16% 92%, rgba(247, 205, 70, 0.26) 0%, rgba(247, 205, 70, 0) 46%),
+      radial-gradient(120% 120% at 12% 18%, var(--m1) 0%, transparent 46%),
+      radial-gradient(120% 120% at 88% 12%, var(--m2) 0%, transparent 48%),
+      radial-gradient(130% 130% at 82% 88%, var(--m3) 0%, transparent 50%),
+      radial-gradient(120% 120% at 16% 92%, var(--m4) 0%, transparent 48%),
       #ffffff;
     background-size: 200% 200%, 200% 200%, 200% 200%, 200% 200%, auto;
     animation: happie-pdp-mesh 22s ease-in-out infinite;
@@ -965,6 +969,64 @@
     cursor: not-allowed;
   }
 
+  /* SUBSCRIBE & SAVE UPSELL PILLS (variety pack) */
+  .ss-upsell { margin: 4px 0 22px; }
+  .ss-upsell__head {
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    color: var(--happie-purple, #962F80);
+    margin-bottom: 10px;
+  }
+  .ss-upsell__row {
+    display: flex;
+    gap: 10px;
+    overflow-x: auto;
+    padding-bottom: 4px;
+    scrollbar-width: none;
+  }
+  .ss-upsell__row::-webkit-scrollbar { display: none; }
+  .ss-pill {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    background: rgba(255, 255, 255, 0.85);
+    border: 1.5px solid rgba(150, 47, 128, 0.18);
+    border-radius: 999px;
+    padding: 7px 16px 7px 7px;
+    transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+  }
+  .ss-pill:hover {
+    transform: translateY(-2px);
+    border-color: rgba(150, 47, 128, 0.4);
+    box-shadow: 0 8px 22px rgba(150, 47, 128, 0.16);
+  }
+  .ss-pill__img {
+    width: 44px; height: 44px;
+    border-radius: 50%;
+    object-fit: cover;
+    background: #fff;
+    flex: none;
+  }
+  .ss-pill__info { display: flex; flex-direction: column; gap: 2px; }
+  .ss-pill__name {
+    font-size: 13px; font-weight: 700; color: var(--happie-black, #222);
+    white-space: nowrap;
+  }
+  .ss-pill__prices { display: flex; align-items: center; gap: 7px; }
+  .ss-pill__was { font-size: 12px; color: #9a9a9a; text-decoration: line-through; }
+  .ss-pill__now { font-size: 14px; font-weight: 800; color: var(--happie-teal, #50b2bd); }
+  .ss-pill__badge {
+    font-size: 10px; font-weight: 800; letter-spacing: 0.02em;
+    color: #fff;
+    background: linear-gradient(90deg, #50b2bd, #ff9f31);
+    padding: 2px 8px; border-radius: 999px;
+    white-space: nowrap;
+  }
+
   .subscribe-save-label {
     line-height: 1.2;
   }
@@ -1437,7 +1499,53 @@
 
 <!-- Old wave removed - use new wave controls in Image Text Block section below -->
 
-<div class="happie-pdp-section cstm-container" id="happie-product-section" style="padding-top: {{ section.settings.padding_top }}px; padding-bottom: {{ section.settings.padding_bottom }}px;">
+{%- liquid
+  # Flavor-themed hero mesh: pick 4 deep color stops from the product's vibe.
+  # NOTE: check 'grapefruit' before 'grape' (grapefruit contains grape).
+  assign _h = product.handle | downcase
+  assign m1 = 'rgba(80,178,189,0.45)'
+  assign m2 = 'rgba(255,159,49,0.45)'
+  assign m3 = 'rgba(150,47,128,0.42)'
+  assign m4 = 'rgba(247,205,70,0.44)'
+  if _h contains 'grapefruit'
+    assign m1 = 'rgba(255,111,97,0.48)'
+    assign m2 = 'rgba(255,159,49,0.48)'
+    assign m3 = 'rgba(255,90,140,0.42)'
+    assign m4 = 'rgba(247,205,70,0.44)'
+  elsif _h contains 'grape'
+    assign m1 = 'rgba(150,47,128,0.52)'
+    assign m2 = 'rgba(108,54,168,0.48)'
+    assign m3 = 'rgba(200,80,180,0.44)'
+    assign m4 = 'rgba(80,60,160,0.42)'
+  elsif _h contains 'cherry'
+    assign m1 = 'rgba(214,40,70,0.52)'
+    assign m2 = 'rgba(255,90,120,0.46)'
+    assign m3 = 'rgba(150,30,90,0.44)'
+    assign m4 = 'rgba(255,140,90,0.38)'
+  elsif _h contains 'sublime' or _h contains 'lime'
+    assign m1 = 'rgba(120,200,80,0.48)'
+    assign m2 = 'rgba(80,178,189,0.48)'
+    assign m3 = 'rgba(190,220,60,0.44)'
+    assign m4 = 'rgba(60,170,140,0.42)'
+  elsif _h contains 'blue' or _h contains 'razz'
+    assign m1 = 'rgba(60,120,220,0.50)'
+    assign m2 = 'rgba(80,178,189,0.48)'
+    assign m3 = 'rgba(120,80,200,0.44)'
+    assign m4 = 'rgba(90,200,230,0.40)'
+  elsif _h contains 'watermelon'
+    assign m1 = 'rgba(240,70,110,0.50)'
+    assign m2 = 'rgba(90,190,90,0.46)'
+    assign m3 = 'rgba(255,120,150,0.42)'
+    assign m4 = 'rgba(160,210,70,0.38)'
+  elsif _h contains 'mango'
+    assign m1 = 'rgba(255,150,30,0.50)'
+    assign m2 = 'rgba(255,190,50,0.48)'
+    assign m3 = 'rgba(255,110,90,0.42)'
+    assign m4 = 'rgba(250,215,80,0.42)'
+  endif
+-%}
+
+<div class="happie-pdp-section cstm-container" id="happie-product-section" style="--m1: {{ m1 }}; --m2: {{ m2 }}; --m3: {{ m3 }}; --m4: {{ m4 }}; padding-top: {{ section.settings.padding_top }}px; padding-bottom: {{ section.settings.padding_bottom }}px;">
   
   <!-- Breadcrumbs -->
   <nav class="happie-breadcrumbs" aria-label="Breadcrumb">
@@ -1930,7 +2038,48 @@
               </button>
             {% endif %}
 
-      
+            {%- comment -%} Subscribe & Save upsell pills (variety pack only). Prices/discounts pulled live from each product's real selling plan — never hardcoded. {%- endcomment -%}
+            {%- if product.handle == 'happie-social-4-pack' -%}
+              {%- assign ss_handles = 'sublime,cheery-cherry,grateful-grape,groovy-grapefruit' | split: ',' -%}
+              {%- capture ss_pills -%}
+                {%- for uh in ss_handles -%}
+                  {%- assign up = all_products[uh] -%}
+                  {%- if up.id != blank and up.available and up.selling_plan_groups.size > 0 -%}
+                    {%- assign uv = up.selected_or_first_available_variant -%}
+                    {%- assign uplan = up.selling_plan_groups.first.selling_plans.first -%}
+                    {%- assign updisc = 0 -%}
+                    {%- for adj in uplan.price_adjustments -%}
+                      {%- if adj.value_type == 'percentage' -%}{%- assign updisc = adj.value -%}{%- endif -%}
+                    {%- endfor -%}
+                    {%- assign upsub = uv.price -%}
+                    {%- for alloc in uv.selling_plan_allocations -%}
+                      {%- if alloc.selling_plan.id == uplan.id -%}{%- assign upsub = alloc.price -%}{%- endif -%}
+                    {%- endfor -%}
+                    {%- if upsub < uv.price -%}
+                      <a href="{{ up.url }}" class="ss-pill">
+                        <img class="ss-pill__img" src="{{ up.featured_image | image_url: width: 96 }}" alt="{{ up.title | escape }}" width="44" height="44" loading="lazy">
+                        <span class="ss-pill__info">
+                          <span class="ss-pill__name">{{ up.title }}</span>
+                          <span class="ss-pill__prices">
+                            <s class="ss-pill__was">{{ uv.price | money }}</s>
+                            <span class="ss-pill__now">{{ upsub | money }}</span>
+                            <span class="ss-pill__badge">Save {{ updisc }}%</span>
+                          </span>
+                        </span>
+                      </a>
+                    {%- endif -%}
+                  {%- endif -%}
+                {%- endfor -%}
+              {%- endcapture -%}
+              {%- if ss_pills != blank -%}
+                <div class="ss-upsell">
+                  <div class="ss-upsell__head">✨ Add more &amp; Subscribe to Save</div>
+                  <div class="ss-upsell__row">{{ ss_pills }}</div>
+                </div>
+              {%- endif -%}
+            {%- endif -%}
+
+
 
             <!-- Shipping Info Block -->
           {% when 'shipping_info' %}
