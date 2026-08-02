@@ -244,10 +244,35 @@
   </data-island>
 
 {%- if collection.description != blank -%}
-  <div class="collection-description-footer" style="background:#ffffff; padding:48px 20px 56px; margin-top:0;">
-    <div style="max-width:800px; margin:0 auto;">
-      <h2 class="font-heading" style="color:#141414; font-size:1.75rem; margin:0 0 1.25rem; line-height:1.2;">About this collection</h2>
-      <div class="rte" style="color:#2b2b2b; line-height:1.65;">
+  <style>
+    .collection-description-footer{
+      background:
+        radial-gradient(120% 90% at 6% 0%,rgba(80,178,189,.14),transparent 46%),
+        radial-gradient(120% 90% at 94% 6%,rgba(255,159,49,.14),transparent 46%),
+        radial-gradient(130% 100% at 85% 100%,rgba(150,47,128,.12),transparent 52%),
+        #ffffff;
+      padding:56px 20px 64px;
+    }
+    .collection-description-footer__card{
+      max-width:860px;margin:0 auto;background:#fff;border:1px solid rgba(150,47,128,.10);
+      border-radius:28px;padding:clamp(24px,4vw,48px);
+      box-shadow:0 16px 46px rgba(150,47,128,.10);
+    }
+    .collection-description-footer__card h2{
+      color:#962F80;font-size:clamp(1.6rem,4vw,2.1rem);font-weight:800;margin:0 0 1.1rem;line-height:1.15;
+    }
+    .collection-description-footer__card .rte{color:#3a3a3a;line-height:1.72;font-size:16px;}
+    .collection-description-footer__card .rte h2,
+    .collection-description-footer__card .rte h3{color:#50B2BD;font-weight:800;margin:1.6em 0 .6em;}
+    .collection-description-footer__card .rte strong{color:#962F80;}
+    .collection-description-footer__card .rte ul{padding-left:0;list-style:none;}
+    .collection-description-footer__card .rte li{position:relative;padding-left:1.7em;margin:.5em 0;}
+    .collection-description-footer__card .rte li::before{content:"";position:absolute;left:0;top:.55em;width:9px;height:9px;border-radius:50%;background:linear-gradient(135deg,#50B2BD,#962F80);}
+  </style>
+  <div class="collection-description-footer">
+    <div class="collection-description-footer__card">
+      <h2 class="font-heading">About this collection</h2>
+      <div class="rte">
         {{ collection.description }}
       </div>
     </div>

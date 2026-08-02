@@ -123,31 +123,23 @@
     
     .collection-filters__bar {
       padding: 12px 0;
-      margin: 0 -16px;
+      margin: 0;
     }
-    
+
+    /* Mobile: wrap all pills so every category (incl. Merch) is visible without side-scrolling */
     .collection-filters__scroll-container {
       display: flex;
-      flex-wrap: nowrap;
-      justify-content: flex-start;
-      overflow-x: auto;
-      scroll-snap-type: x mandatory;
-      -webkit-overflow-scrolling: touch;
-      scrollbar-width: none;
-      -ms-overflow-style: none;
-      padding: 4px 16px;
-      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: center;
+      overflow-x: visible;
+      padding: 4px 6px;
+      gap: 8px;
     }
-    
-    .collection-filters__scroll-container::-webkit-scrollbar {
-      display: none;
-    }
-    
+
     .collection-filters__pill {
-      scroll-snap-align: start;
-      flex-shrink: 0;
-      padding: 10px 20px;
-      font-size: 14px;
+      flex: 0 1 auto;
+      padding: 9px 16px;
+      font-size: 13px;
     }
   }
   
