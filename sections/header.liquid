@@ -1194,10 +1194,11 @@
     
     /* The pill container */
     #shopify-section-{{ section.id }} .headerBorderWrap {
-      background: {{ nav_bg_color }} !important;
-      background-color: {{ nav_bg_color }} !important;
+      background: linear-gradient(120deg, #e6f5f6 0%, #fdf0e4 52%, #f4e9f1 100%) !important;
+      background-color: #f0f6f6 !important;
       border-radius: 999px;
-      box-shadow: 0 2px 12px rgba(0, 0, 0, {{ nav_shadow_opacity | divided_by: 100.0 }});
+      border: 1px solid rgba(150, 47, 128, 0.10);
+      box-shadow: 0 6px 22px rgba(150, 47, 128, 0.12), 0 2px 8px rgba(80, 178, 189, 0.10);
       max-width: 1105px;
       height: 72px !important;
       margin: 0 auto;
@@ -1377,10 +1378,11 @@
     }
     
     #shopify-section-{{ section.id }} .headerBorderWrap {
-      background: {{ nav_bg_color }} !important;
-      background-color: {{ nav_bg_color }} !important;
+      background: linear-gradient(120deg, #e6f5f6 0%, #fdf0e4 52%, #f4e9f1 100%) !important;
+      background-color: #f0f6f6 !important;
       border-radius: 999px;
-      box-shadow: 0 2px 12px rgba(0, 0, 0, {{ nav_shadow_opacity | divided_by: 100.0 }});
+      border: 1px solid rgba(150, 47, 128, 0.10);
+      box-shadow: 0 6px 20px rgba(150, 47, 128, 0.14), 0 2px 8px rgba(80, 178, 189, 0.10);
       height: 56px !important;
       overflow: hidden;
     }
