@@ -1168,6 +1168,16 @@
   assign mobile_logo_width = section.settings.mobile_logo_max_width | default: 80
 -%}
 <style>
+  /* Animated gradient sweep for the floating nav pill */
+  @keyframes happieHeaderGradient {
+    0%   { background-position: 0% 50%; }
+    50%  { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    #shopify-section-{{ section.id }} .headerBorderWrap { animation: none !important; }
+  }
+
   /* ========================================
      DESKTOP: Floating pill navigation
      ======================================== */
@@ -1194,8 +1204,10 @@
     
     /* The pill container */
     #shopify-section-{{ section.id }} .headerBorderWrap {
-      background: linear-gradient(120deg, #e6f5f6 0%, #fdf0e4 52%, #f4e9f1 100%) !important;
+      background: linear-gradient(120deg, #e6f5f6 0%, #fdf0e4 26%, #f4e9f1 52%, #fdf0e4 74%, #e6f5f6 100%) !important;
+      background-size: 300% 100% !important;
       background-color: #f0f6f6 !important;
+      animation: happieHeaderGradient 9s ease-in-out infinite;
       border-radius: 999px;
       border: 1px solid rgba(150, 47, 128, 0.10);
       box-shadow: 0 6px 22px rgba(150, 47, 128, 0.12), 0 2px 8px rgba(80, 178, 189, 0.10);
@@ -1378,8 +1390,10 @@
     }
     
     #shopify-section-{{ section.id }} .headerBorderWrap {
-      background: linear-gradient(120deg, #e6f5f6 0%, #fdf0e4 52%, #f4e9f1 100%) !important;
+      background: linear-gradient(120deg, #e6f5f6 0%, #fdf0e4 26%, #f4e9f1 52%, #fdf0e4 74%, #e6f5f6 100%) !important;
+      background-size: 300% 100% !important;
       background-color: #f0f6f6 !important;
+      animation: happieHeaderGradient 9s ease-in-out infinite;
       border-radius: 999px;
       border: 1px solid rgba(150, 47, 128, 0.10);
       box-shadow: 0 6px 20px rgba(150, 47, 128, 0.14), 0 2px 8px rgba(80, 178, 189, 0.10);
