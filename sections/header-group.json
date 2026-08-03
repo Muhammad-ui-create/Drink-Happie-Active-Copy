@@ -51,7 +51,7 @@
         "transparent_when_overlaid_and_stuck": true,
         "overlay_show_separator_border": false,
         "overlay_first_section_padding_top_desktop": 6,
-        "overlay_first_section_padding_top_mobile": 3,
+        "overlay_first_section_padding_top_mobile": 6,
         "enable_scroll_hide": true,
         "nav_background_color": "#ffffff",
         "nav_text_color": "#1a1a1a",
