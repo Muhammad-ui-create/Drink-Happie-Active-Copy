@@ -145,6 +145,39 @@
     </div>
     {%- endif -%}
 
+    {%- comment -%} Bundles CTA Banner (mobile) — mirrors desktop mega-menu bundles {%- endcomment -%}
+    {%- liquid
+      assign bundles_url = section.settings.shop_mega_bundles_url | default: '/pages/bundles'
+      assign bundles_label = section.settings.shop_mega_bundles_label | default: 'Bundle & Save'
+      assign bundles_title = section.settings.shop_mega_bundles_title | default: 'Happie Bundles'
+      assign bundles_cta = section.settings.shop_mega_bundles_cta | default: 'Shop Bundles'
+      assign bundles_image = section.settings.shop_mega_bundles_image
+    -%}
+    {%- unless section.settings.shop_mega_show_bundles == false -%}
+    <div class="sidebar-nav-happie__merch-wrap">
+      <a href="{{ bundles_url }}" class="sidebar-nav-happie__merch-banner sidebar-nav-happie__merch-banner--bundles">
+        <div class="sidebar-nav-happie__merch-text">
+          <span class="sidebar-nav-happie__merch-label">{{ bundles_label }}</span>
+          <h5 class="sidebar-nav-happie__merch-title">{{ bundles_title }}</h5>
+          <span class="sidebar-nav-happie__merch-cta">
+            {{ bundles_cta }}
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </span>
+        </div>
+        <div class="sidebar-nav-happie__merch-image-wrap">
+          <img
+            src="{% if bundles_image != blank %}{{ bundles_image | image_url: width: 200 }}{% else %}{{ 'bundle-cheery-cherry-8pack.webp' | asset_url }}{% endif %}"
+            alt="{{ bundles_title | escape }}"
+            width="90"
+            height="90"
+            loading="lazy"
+            class="sidebar-nav-happie__merch-img"
+          >
+        </div>
+      </a>
+    </div>
+    {%- endunless -%}
+
     {%- comment -%} Navigation Links {%- endcomment -%}
     {%- liquid
       # Get the menu handle from settings and access via linklists global
@@ -641,6 +674,15 @@
   .sidebar-nav-happie__merch-banner:active {
     box-shadow: 0 4px 16px rgba(243, 112, 36, 0.2);
   }
+
+  /* Bundles variant (mobile) — brand teal/purple */
+  .sidebar-nav-happie__merch-wrap + .sidebar-nav-happie__merch-wrap { margin-top: 12px; }
+  .sidebar-nav-happie__merch-banner--bundles { background: #E4F4F6; }
+  .sidebar-nav-happie__merch-banner--bundles::before { background: rgba(150, 47, 128, 0.07); }
+  .sidebar-nav-happie__merch-banner--bundles:active { box-shadow: 0 4px 16px rgba(80, 178, 189, 0.22); }
+  .sidebar-nav-happie__merch-banner--bundles .sidebar-nav-happie__merch-label { background: #50B2BD; color: #fff; }
+  .sidebar-nav-happie__merch-banner--bundles .sidebar-nav-happie__merch-cta { background: #962F80; }
+  .sidebar-nav-happie__merch-banner--bundles:active .sidebar-nav-happie__merch-cta { background: #7a2568; }
 
   .sidebar-nav-happie__merch-text {
     display: flex;
