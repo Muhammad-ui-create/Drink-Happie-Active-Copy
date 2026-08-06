@@ -3,6 +3,7 @@
   .shopify-section:has(#moast-app-{{ section.id }}) {
     overflow: visible !important;
     position: relative;
+    z-index: 3; /* lift the section so its overflowing bottom wave paints ABOVE the next section instead of being covered */
   }
   #moast-app-{{ section.id }}.moast-app-section,
   .app-sec#moast-app-{{ section.id }},
