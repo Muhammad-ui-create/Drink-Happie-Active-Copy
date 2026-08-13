@@ -313,7 +313,7 @@
             "product_cards": "none",
             "autoplay_mode": "all",
             "autoscroll_duration": 0,
-            "slide_size": 250,
+            "slide_size": "250",
             "aspect_ratio": "vertical",
             "border": 0,
             "border_color": "linear-gradient(to right, #833ab4, #fd1d1d, #fcb045)",
@@ -480,8 +480,8 @@
         "faq_item_AE6EiT": {
           "type": "faq_item",
           "settings": {
-            "question": "Why agave and honey instead of regular sugar?",
-            "answer": "We chose organic agave nectar and organic honey because they're natural, lower-glycemic sweeteners that won't spike your blood sugar like cane sugar does. You get 30 calories and just 5-7g of sugar per can—way less than most sodas, seltzers, or cocktails."
+            "question": "Why agave nectar instead of regular sugar?",
+            "answer": "We chose organic agave nectar because it's a natural, lower-glycemic sweetener that won't spike your blood sugar like cane sugar does. You get 30 calories and just 5-7g of sugar per can—way less than most sodas, seltzers, or cocktails."
           }
         },
         "faq_item_J3AzqW": {
